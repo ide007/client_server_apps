@@ -12,4 +12,32 @@ b.  Реализовать сохранение данных в файл фор�
 c.  Реализовать считывание данных из созданного файла и проверить, совпадают ли
     они с исходными.
 """
+import yaml
 
+
+def write_dict_to_yaml(data, file):
+    with open(file, 'w', encoding='utf-8') as f_w:
+        yaml.dump(data, f_w, default_flow_style=False, allow_unicode=True)
+
+
+def read_from_yaml(file):
+    with open(file, encoding='utf-8') as f_r:
+        print(f_r.read())
+
+
+if __name__ == '__main__':
+
+    my_data = {
+        'PC': ['computer', 'monitor', 'keyboard', 'mouse'],
+        'some_number': 123456,
+        'currency': {
+            'dollars': ['1$', '5$', '50$', '100$'],
+            'euro': ['1€', '20€', '50€', '100€'],
+            'yen': ['1¥', '20¥', '50¥', '100¥'],
+            'rubles': ['50₱', '100₱', '500₱', '1000₱']
+        }
+    }
+
+    write_dict_to_yaml(my_data, 'file.yaml')
+
+    read_from_yaml('file.yaml')
