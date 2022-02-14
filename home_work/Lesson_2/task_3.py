@@ -21,8 +21,8 @@ def write_dict_to_yaml(data, file):
 
 
 def read_from_yaml(file):
-    with open(file, encoding='utf-8') as f_r:
-        print(f_r.read())
+    with open(file, 'r', encoding='utf-8') as f_r:
+        return yaml.load(f_r, Loader=yaml.SafeLoader)
 
 
 if __name__ == '__main__':
@@ -40,4 +40,4 @@ if __name__ == '__main__':
 
     write_dict_to_yaml(my_data, 'file.yaml')
 
-    read_from_yaml('file.yaml')
+    print(read_from_yaml('file.yaml') == my_data)
