@@ -3,7 +3,7 @@ from logging.handlers import TimedRotatingFileHandler
 import os
 
 
-logger = logging.getLogger('server')
+server_logger = logging.getLogger('server')
 PATH = os.path.dirname(os.path.abspath(__file__))
 PATH = os.path.join(PATH, 'server.log')
 formatter = logging.Formatter(
@@ -19,13 +19,13 @@ file_hand = logging.handlers.TimedRotatingFileHandler(
 file_hand.setFormatter(formatter)
 file_hand.setLevel(logging.DEBUG)
 
-logger.addHandler(file_hand)
-logger.setLevel(20)
+server_logger.addHandler(file_hand)
+server_logger.setLevel(logging.DEBUG)
 
 
 if __name__ == '__main__':
     console = logging.StreamHandler()
     console.setLevel(logging.DEBUG)
     console.setFormatter(formatter)
-    logger.addHandler(console)
-    logger.info('Тестовый запуск логирования')
+    server_logger.addHandler(console)
+    server_logger.info('Тестовый запуск логирования')

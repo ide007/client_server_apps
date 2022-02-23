@@ -5,7 +5,7 @@ from common.variables import ACTION, ACCOUNT_NAME, MAX_CONNECTIONS, \
     DEFAULT_PORT, DEFAULT_IP_ADDRESS, PRESENCE, RESPONSE, \
     TIME, USER, ERROR
 from common.utils import read_message, send_message
-from logs.server_logging_conf import logger
+from logs.server_log_config import server_logger
 
 
 def check_and_create_answer_to_client(message):
@@ -14,11 +14,13 @@ def check_and_create_answer_to_client(message):
     :param message:
     :return:
     """
+    server_logger.info(f'Принято сообщение: {message}.')
     if ACTION in message and message[ACTION] == PRESENCE and TIME in message\
             and USER in message and message[USER][ACCOUNT_NAME] == 'Guest':
-        logger.info(f'Принято сообщение {message} от {[USER][ACCOUNT_NAME]}')
-        return {RESPONSE: 200}
-    logger.error(f'Сообщение {message} от {[USER][ACCOUNT_NAME]} некорректно.')
+        server_logger.debug(f'Принято сообщение: {message} от'
+                            f' {[USER][ACCOUNT_NAME]}')
+        return {RESPONSE: 200, ACTION: "It's OK!"}
+    server_logger.error(f'Сообщение {message} некорректно.')
     return {RESPONSE: 400, ERROR: 'Bad Request'}
 
 
@@ -28,41 +30,53 @@ def main():
     параметры по умолчанию, из файла variables.py
     :return:
     """
+    server_logger.info('Запуск сервера... Анализ параметров запуска...')
     try:
         # при наличии обрабатываем параметры порта
         if '-p' in sys.argv:
             listen_port = int(sys.argv[sys.argv.index('-p') + 1])
-            logger.info(f'Применен параментр порта: {listen_port}')
+            server_logger.info(f'Применен параметр порта:{listen_port}')
         else:
             listen_port = DEFAULT_PORT
-            logger.info(f'Применен параментр порта по умолчанию: {listen_port}')
+            server_logger.info(f'Применен параментр порта по умолчанию: '
+                               f'{listen_port}')
         if 65535 < listen_port < 1024:
-            logger.warning(f'Ошибка применения параментра порта {listen_port},'
-                           f' так как параметр не удовлетворяющий требованиям')
+            server_logger.warning(f'Ошибка применения параментра порта'
+                                  f' {listen_port}, так как параметр не'
+                                  f' удовлетворяющий требованиям')
             raise ValueError
     except IndexError:
         print('После параметра "-p" нужно указать номер порта сервера.')
-        logger.critical(f'Ошибка: После параметра "-p" не указан, или '
-                        f'некорректно указан номер порта сервера. '
-                        f'Ошибка вызвала остановку выполнения программы с '
-                        f'кодом 1.')
+        server_logger.critical(f'Ошибка: После параметра "-p" не указан, или '
+                               f'некорректно указан номер порта сервера. '
+                               f'Ошибка вызвала остановку выполнения программы'
+                               f' с кодом 1.')
         sys.exit(1)
     except ValueError:
         print('Номер порта должен быть в интервале от 1024 до 65535.')
-        logger.critical(f'Ошибка: некорректно указан номер порта. '
-                        f'Порт должен быть в интервале от 1024 до 65535. '
-                        f'Ошибка вызвала остановку выполнения программы с '
-                        f'кодом 1.')
+        server_logger.critical(f'Ошибка: некорректно указан номер порта. '
+                               f'Значение порта должен быть в интервале от '
+                               f'1024 до 65535. Ошибка вызвала остановку'
+                               f' выполнения программы с кодом 1.')
         sys.exit(1)
 
     try:
         # при наличии обрабатываем параметры ip-адреса
         if '-a' in sys.argv:
             listen_address = sys.argv[sys.argv.index('-a') + 1]
+            server_logger.info(f'Применен параметр ip - адреса:'
+                               f' {listen_address}')
         else:
             listen_address = DEFAULT_IP_ADDRESS
+            server_logger.info(f'Применен параметр ip - адреса по умолчанию: '
+                               f'{listen_address}')
     except IndexError:
         print('После параметра "-a" нужно указать IP-адрес для сервера.')
+        server_logger.critical(f'Ошибка: После параметра "-а" не указан, или '
+                               f'некорректно указан IP-адрес для запуска'
+                               f' сервера. Ошибка вызвала остановку выполнения'
+                               f' программы с кодом 1.')
+        sys.exit(1)
 
     server_sock = socket(AF_INET, SOCK_STREAM)
     server_sock.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
@@ -72,15 +86,23 @@ def main():
 
     while True:
         client_socket, address = server_sock.accept()
+        server_logger.info(f'Установлено соединение с клиентом {address}')
         try:
             message_from_client = read_message(client_socket)
             print(message_from_client)
+            server_logger.info(f'Клиент прислал сообщение:'
+                               f' {message_from_client}')
             response = check_and_create_answer_to_client(message_from_client)
             send_message(client_socket, response)
+            server_logger.info(f'Попытка отправки сообщения {response} клиенту'
+                               f' {address}')
+            server_logger.debug(f'Соединение с клиентом {address} закрыто.')
             client_socket.close()
         except (ValueError, json.JSONDecoder):
-            print('Принятое сообщение от клиента несоответствует протоколу,'
-                  ' либо возникла ошибка при декодировании сообщения.')
+            server_logger.warning('Принятое сообщение от клиента'
+                                  ' несоответствует протоколу, либо возникла'
+                                  ' ошибка при декодировании сообщения.')
+            server_logger.info(f'Соединение с клиентом {address} закрыто.')
             client_socket.close()
 
 

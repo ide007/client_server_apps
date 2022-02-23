@@ -5,7 +5,7 @@
 DEFAULT_PORT = 7777
 
 # IP-адрес по умолчанию
-DEFAULT_IP_ADDRESS = ''
+DEFAULT_IP_ADDRESS = '127.0.0.1'
 
 # Максимальная длина очереди на подключение
 MAX_CONNECTIONS = 7
