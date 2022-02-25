@@ -1,0 +1,37 @@
+2022 Feb 25 21:35:01 INFO     <module> Тестовый запуск логирования
+2022 Feb 25 21:35:47 INFO     main Запуск сервера... Анализ параметров запуска...
+2022 Feb 25 21:35:47 INFO     main Применен параментр порта по умолчанию: 7777
+2022 Feb 25 21:35:47 INFO     main Применен параметр ip - адреса по умолчанию: 127.0.0.1
+2022 Feb 25 21:35:50 INFO     main Установлено соединение с клиентом ('127.0.0.1', 54233)
+2022 Feb 25 21:35:50 INFO     main Клиент прислал сообщение: {'action': 'presence', 'time': 1645814150.8100693, 'user': {'account_name': 'Guest'}}
+2022 Feb 25 21:35:50 INFO     check_and_create_answer_to_client Принято сообщение: {'action': 'presence', 'time': 1645814150.8100693, 'user': {'account_name': 'Guest'}}.
+2022 Feb 25 21:35:50 DEBUG    main Принято сообщение: {'action': 'presence', 'time': 1645814150.8100693, 'user': {'account_name': 'Guest'}} от ('127.0.0.1', 54233)
+2022 Feb 25 21:35:50 INFO     main Попытка отправки сообщения {'response': 200} клиенту ('127.0.0.1', 54233)
+2022 Feb 25 21:35:50 DEBUG    main Соединение с клиентом ('127.0.0.1', 54233) закрыто.
+2022 Feb 25 21:36:02 INFO     main Установлено соединение с клиентом ('127.0.0.1', 54234)
+2022 Feb 25 21:36:02 INFO     main Клиент прислал сообщение: {'action': 'presence', 'time': 1645814162.2338514, 'user': {'account_name': 'Guest'}}
+2022 Feb 25 21:36:02 INFO     check_and_create_answer_to_client Принято сообщение: {'action': 'presence', 'time': 1645814162.2338514, 'user': {'account_name': 'Guest'}}.
+2022 Feb 25 21:36:02 DEBUG    main Принято сообщение: {'action': 'presence', 'time': 1645814162.2338514, 'user': {'account_name': 'Guest'}} от ('127.0.0.1', 54234)
+2022 Feb 25 21:36:02 INFO     main Попытка отправки сообщения {'response': 200} клиенту ('127.0.0.1', 54234)
+2022 Feb 25 21:36:02 DEBUG    main Соединение с клиентом ('127.0.0.1', 54234) закрыто.
+2022 Feb 25 21:36:05 INFO     main Установлено соединение с клиентом ('127.0.0.1', 54235)
+2022 Feb 25 21:36:05 INFO     main Клиент прислал сообщение: {'action': 'presence', 'time': 1645814165.8878582, 'user': {'account_name': 'Guest'}}
+2022 Feb 25 21:36:05 INFO     check_and_create_answer_to_client Принято сообщение: {'action': 'presence', 'time': 1645814165.8878582, 'user': {'account_name': 'Guest'}}.
+2022 Feb 25 21:36:05 DEBUG    main Принято сообщение: {'action': 'presence', 'time': 1645814165.8878582, 'user': {'account_name': 'Guest'}} от ('127.0.0.1', 54235)
+2022 Feb 25 21:36:05 INFO     main Попытка отправки сообщения {'response': 200} клиенту ('127.0.0.1', 54235)
+2022 Feb 25 21:36:05 DEBUG    main Соединение с клиентом ('127.0.0.1', 54235) закрыто.
+2022 Feb 25 21:39:55 INFO     main Запуск сервера... Анализ параметров запуска...
+2022 Feb 25 21:39:55 INFO     main Применен параментр порта по умолчанию: 7777
+2022 Feb 25 21:39:55 INFO     main Применен параметр ip - адреса по умолчанию: 127.0.0.1
+2022 Feb 25 21:40:00 INFO     main Установлено соединение с клиентом ('127.0.0.1', 54246)
+2022 Feb 25 21:40:17 INFO     main Клиент прислал сообщение: {'action': 'presence', 'time': 1645814404.6399739, 'user': {'account_name': 'Guest'}}
+2022 Feb 25 21:40:17 INFO     check_and_create_answer_to_client Принято сообщение: {'action': 'presence', 'time': 1645814404.6399739, 'user': {'account_name': 'Guest'}}.
+2022 Feb 25 21:40:17 DEBUG    main Принято сообщение: {'action': 'presence', 'time': 1645814404.6399739, 'user': {'account_name': 'Guest'}} от ('127.0.0.1', 54246)
+2022 Feb 25 21:40:17 INFO     main Попытка отправки сообщения {'response': 200} клиенту ('127.0.0.1', 54246)
+2022 Feb 25 21:40:17 DEBUG    main Соединение с клиентом ('127.0.0.1', 54246) закрыто.
+2022 Feb 25 21:42:59 INFO     main Установлено соединение с клиентом ('127.0.0.1', 54254)
+2022 Feb 25 21:43:06 INFO     main Клиент прислал сообщение: {'action': 'presence', 'time': 1645814581.514773, 'user': {'account_name': 'Guest'}}
+2022 Feb 25 21:43:06 INFO     check_and_create_answer_to_client Принято сообщение: {'action': 'presence', 'time': 1645814581.514773, 'user': {'account_name': 'Guest'}}.
+2022 Feb 25 21:43:06 DEBUG    main Принято сообщение: {'action': 'presence', 'time': 1645814581.514773, 'user': {'account_name': 'Guest'}} от ('127.0.0.1', 54254)
+2022 Feb 25 21:43:06 INFO     main Попытка отправки сообщения {'response': 200} клиенту ('127.0.0.1', 54254)
+2022 Feb 25 21:43:06 DEBUG    main Соединение с клиентом ('127.0.0.1', 54254) закрыто.

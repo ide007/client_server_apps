@@ -8,10 +8,10 @@ DEFAULT_PORT = 7777
 DEFAULT_IP_ADDRESS = '127.0.0.1'
 
 # Максимальная длина очереди на подключение
-MAX_CONNECTIONS = 7
+MAX_CONNECTIONS = 1 # для теста
 
 # Максимальная длина сообщения в байтах
-MAX_MESSAGE_LEN = 4096
+MAX_MESSAGE_LEN = 1024
 
 # Применяемая кодировка
 ENCODING = 'utf-8'
@@ -26,4 +26,4 @@ ACCOUNT_NAME = 'account_name'
 PRESENCE = 'presence'
 RESPONSE = 'response'
 ERROR = 'error'
-RESPONSE_DEFAULT_IP_ADDRESSES = 'response_default_ip_addresses'
+RESPONSE_DEFAULT_IP_ADDRESS = 'response_default_ip_address'

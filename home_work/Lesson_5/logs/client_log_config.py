@@ -13,11 +13,11 @@ file_hand.setLevel(logging.DEBUG)
 
 file_hand.setFormatter(formatter)
 client_logger.addHandler(file_hand)
-client_logger.setLevel(20)
+client_logger.setLevel(10)
 
 
 if __name__ == '__main__':
     stream_hand = logging.StreamHandler(sys.stdout)
     stream_hand.setFormatter(formatter)
     client_logger.addHandler(stream_hand)
-    client_logger.info('Отладочное сообщение')
+    client_logger.info('Тестовое сообщение')

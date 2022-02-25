@@ -13,9 +13,10 @@ def send_message(socket, message):
     :param message:
     :return:
     """
-    if not isinstance(message, dict):
-        raise TypeError
-    socket.send(json.dumps(message).encode(ENCODING))
+
+    js_message = json.dumps(message)
+    encoded_message = js_message.encode(ENCODING)
+    socket.send(encoded_message)
 
 
 def read_message(socket):
@@ -27,9 +28,7 @@ def read_message(socket):
     """
     encoded_response = socket.recv(MAX_MESSAGE_LEN)
     if isinstance(encoded_response, bytes):
-        if isinstance(encoded_response.decode(ENCODING), str):
-            if isinstance(json.loads(encoded_response.decode(ENCODING)), dict):
-                return json.loads(encoded_response.decode(ENCODING))
-            raise ValueError
+        if isinstance(json.loads(encoded_response.decode(ENCODING)), dict):
+            return json.loads(encoded_response.decode(ENCODING))
         raise ValueError
     raise ValueError
