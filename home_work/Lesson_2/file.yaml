@@ -1,0 +1,27 @@
+PC:
+- computer
+- monitor
+- keyboard
+- mouse
+currency:
+  dollars:
+  - 1$
+  - 5$
+  - 50$
+  - 100$
+  euro:
+  - 1€
+  - 20€
+  - 50€
+  - 100€
+  rubles:
+  - 50₱
+  - 100₱
+  - 500₱
+  - 1000₱
+  yen:
+  - 1¥
+  - 20¥
+  - 50¥
+  - 100¥
+some_number: 123456

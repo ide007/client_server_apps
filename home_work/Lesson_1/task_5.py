@@ -9,8 +9,8 @@ source = ['yandex.ru', 'youtube.com']
 command = 'ping'
 
 
-def func_5(args):
-    subproc_ping = subprocess.Popen(args, stdout=subprocess.PIPE)
+def func_5(arguments):
+    subproc_ping = subprocess.Popen(arguments, stdout=subprocess.PIPE)
     for line in subproc_ping.stdout:
         print(line.decode('cp866').encode('utf-8').decode('utf-8'), end='')
 
