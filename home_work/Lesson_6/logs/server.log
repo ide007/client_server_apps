@@ -1,0 +1,11 @@
+2022 Mar 01 23:42:59 INFO     <module> Тестовый запуск логирования
+2022 Mar 01 23:43:09 INFO     main Запуск сервера... Анализ параметров запуска...
+2022 Mar 01 23:43:09 INFO     main Применен параментр порта по умолчанию: 7777
+2022 Mar 01 23:43:09 INFO     main Применен параметр ip - адреса по умолчанию: 127.0.0.1
+2022 Mar 01 23:43:12 INFO     main Установлено соединение с клиентом ('127.0.0.1', 56331)
+2022 Mar 01 23:43:12 DEBUG    wrap Функция-"read_message" была вызвана из модуля-"common.utils" и инициирован из функцией-"main", с параметрами "(<socket.socket fd=436, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 56331)>,)", "{}".
+2022 Mar 01 23:43:12 INFO     check_and_create_answer_to_client Принято сообщение: {'action': 'presence', 'time': 1646167392.8289766, 'user': {'account_name': 'Guest'}}.
+2022 Mar 01 23:43:12 DEBUG    main Принято сообщение: {'action': 'presence', 'time': 1646167392.8289766, 'user': {'account_name': 'Guest'}} от ('127.0.0.1', 56331)
+2022 Mar 01 23:43:12 DEBUG    wrap Функция-"send_message" была вызвана из модуля-"common.utils" и инициирован из функцией-"main", с параметрами "(<socket.socket fd=436, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 56331)>, {'response': 200})", "{}".
+2022 Mar 01 23:43:12 INFO     main Отправляем сообщение {'response': 200} клиенту ('127.0.0.1', 56331)
+2022 Mar 01 23:43:12 DEBUG    main Соединение с клиентом ('127.0.0.1', 56331) закрыто.
