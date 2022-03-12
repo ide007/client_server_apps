@@ -159,6 +159,7 @@ def main():
             for read_client in send_data_lst:
                 try:
                     send_message(read_client, message)
+                    print(f'{message[SENDER]} написал:{message[MESSAGE_TEXT]}')
                 except:
                     server_logger.info(f'Клиент {read_client.getpeername()}'
                                        f'вышел из чата.')
